@@ -1,2 +1,16 @@
 <h1> IMAGE GALLERY</h1>
-<p>No images yet :(</p>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Text</th>
+    </tr>
+    
+    <% @images.each do |image| %>
+        <tr>
+            <td><%= image.title %></td>
+            <td><%= image.text %> </td>
+            <td><%= link_to 'Show', image_path(image) %></td>
+        </tr>
+    <% end %>
+</table>

@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
     def index
+        #@images variable will contain all the Image models
+        @images = Image.all
     end
 
     def show
@@ -20,10 +22,12 @@ class ImagesController < ApplicationController
         @image = Image.new(images_params)
 
         #saves the model into the database
-        @image.save
-
-        #redirect us to the show action
-        redirect_to @image
+        if @image.save
+            #if the model save, redirect us to the show action
+            redirect_to @image
+        else
+            render 'new'
+        end
     end
 
     def update

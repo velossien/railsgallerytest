@@ -4,7 +4,7 @@ FROM ruby:latest
 # well as RubyGems. As the Ruby image itself is based on a 
 # Debian image, we use apt-get to install those.
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev locales nodejs
-
+RUN apt-get install -y vim
 # Use en_US.UTF-8 as our locale
 RUN locale-gen en_US.UTF-8 
 ENV LANG en_US.UTF-8 

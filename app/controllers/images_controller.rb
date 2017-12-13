@@ -1,4 +1,10 @@
 class ImagesController < ApplicationController
+    # user = Rails.application.secrets.user
+    # password= Rails.application.secrets.password
+
+    http_basic_authenticate_with name: Rails.application.secrets.user , password:Rails.application.secrets.password,
+    except: [:index, :show]
+
     def index
         #@images variable will contain all the Image models
         @images = Image.all

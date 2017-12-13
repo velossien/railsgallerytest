@@ -23,3 +23,27 @@ rails db:reset
 rails db:drop
 killall pow
 exit
+rails db:setup
+rails secrets:setup
+rails secrets:edit
+EDITOR="code --wait"
+rails secrets:edit
+EDITOR="code --wait" rails secrets:edit
+EDITOR=notes bin/rails secrets:edit
+EDITOR=vi bin/rails secrets:edit
+EDITOR=vim bin/rails secrets:edit
+EDITOR=vim --wait bin/rails secrets:edit
+EDITOR='notes' bin/rails secrets:edit
+EDITOR='vi' bin/rails secrets:edit
+rails secrets:setup
+apt-get install vim
+apt-get update
+exit
+apt-get update
+exit
+apt-get update
+apt-get install vim
+rails secrets:edit
+EDITOR="vim --wait" bin/rails secrets:edit
+EDITOR="vim" bin/rails secrets:edit
+exit

@@ -1,41 +1,5 @@
 <h1> Upload a new image</h1>
 
-<%= form_with scope: :image, url: images_path, local: true do |form| %>
-
-  <% if @image.errors.any? %> <%# Checks if there were any errors %>
-       <div id="error_explanation">
-         <h2>
-            <%# pluralize will pluralize error to errors if needed %>
-          <%= pluralize(@image.errors.count, "error") %> prohibited
-          this image from being saved:
-         </h2>
-         <ul>
-             <%# this loop will loop through the error msg and print them out %>
-          <% @image.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-         </ul>
-       </div>
-<% end %>
-  
-  <p>
-    <%= form.label :url %><br>
-    <%= form.text_field :url%>
-  </p>
-
-  <p>
-    <%= form.label :alt %><br>
-    <%= form.text_area :alt %>
-  </p>
- 
-  <p>
-    <%= form.label :caption %><br>
-    <%= form.text_area :caption %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', images_path %>

@@ -5,6 +5,7 @@
     <%= link_to(image_path(image)) do %>
         <img class='image_block' src=<%=image.url%> alt=<%=image.alt%> caption=<%=image.caption%>/>
     <% end %>
+    <%= link_to 'Edit this image', edit_image_path(image) %>
 <% end %>
 
 <%# new_image_path is the prefix of the route we need - check rails routes in the terminal to see this %>

@@ -1,0 +1,40 @@
+<%# able to use simpler model:@image instead of using scope and url because @image is a resource corresponding to a full set of RESTful routes and Rails is able to infer which URI and method to use %>
+
+<%# For the edit method - passing in a model causes the helper to fill in the form with the fields of the object. Passing in symbol scope(scope:article) just creates the fields, but without anything in them. %>
+<%= form_with model:@image, local: true do |form| %>
+
+  <% if @image.errors.any? %> <%# Checks if there were any errors %>
+       <div id="error_explanation">
+         <h2>
+            <%# pluralize will pluralize error to errors if needed %>
+          <%= pluralize(@image.errors.count, "error") %> prohibited
+          this image from being saved:
+         </h2>
+         <ul>
+             <%# this loop will loop through the error msg and print them out %>
+          <% @image.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+         </ul>
+       </div>
+<% end %>
+  
+  <p>
+    <%= form.label :url %><br>
+    <%= form.text_field :url%>
+  </p>
+
+  <p>
+    <%= form.label :alt %><br>
+    <%= form.text_area :alt %>
+  </p>
+ 
+  <p>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

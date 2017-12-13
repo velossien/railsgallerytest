@@ -46,6 +46,14 @@ class ImagesController < ApplicationController
     end
 
     def destroy
+        @image = Image.find(params[:id])
+
+        # destroys the image
+        @image.destroy
+
+        # goes back to the image gallery
+        redirect_to images_path
+
     end
 
 

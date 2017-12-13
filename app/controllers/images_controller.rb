@@ -42,6 +42,6 @@ class ImagesController < ApplicationController
     private
         def images_params
             #these params are called Strong Parameters because they allow us to whitelist our controller parameters to prevent wrongful assignment or extra parameters be maliciously added
-            params.require(:image) .permit(:title,:text)
+            params.require(:image) .permit(:url,:alt,:caption)
         end
 end

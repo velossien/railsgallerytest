@@ -1,16 +1,8 @@
 <h1> IMAGE GALLERY</h1>
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Text</th>
-    </tr>
-    
-    <% @images.each do |image| %>
-        <tr>
-            <td><%= image.title %></td>
-            <td><%= image.text %> </td>
-            <td><%= link_to 'Show', image_path(image) %></td>
-        </tr>
+
+<% @images.each do |image| %>
+    <%= link_to(image_path(image)) do %>
+        <img class= 'image_block' src=<%= image.url%> alt=<%=image.alt%> caption=<%=image.caption%>/>
     <% end %>
-</table>
+<% end %>

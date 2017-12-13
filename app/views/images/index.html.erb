@@ -3,6 +3,8 @@
 
 <% @images.each do |image| %>
     <%= link_to(image_path(image)) do %>
-        <img class= 'image_block' src=<%= image.url%> alt=<%=image.alt%> caption=<%=image.caption%>/>
+        <img class='image_block' src=<%=image.url%> alt=<%=image.alt%> caption=<%=image.caption%>/>
     <% end %>
 <% end %>
+
+<%= link_to 'Add new image', new_image_path %>

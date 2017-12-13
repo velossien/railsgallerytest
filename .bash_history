@@ -12,3 +12,14 @@ rails generate model Image title:string text:text
 rails db:migrate
 rails db:create
 exit
+rails g migration AddAttrToImages url:string alt:text caption:text
+rails db:migrate
+rails g migration RemoveAttrToImages title:string text:text 
+rails db:migrate
+rails db:reset
+exit
+rails db:reset
+rails db:reset
+rails db:drop
+killall pow
+exit

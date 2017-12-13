@@ -12,7 +12,8 @@ class ImagesController < ApplicationController
     end
 
     def new
-        
+        #creates a new instance variable cdalled @image that will be true if the items saved, or falses if it does not
+        @image = Image.new
     end
 
     def edit
@@ -24,7 +25,7 @@ class ImagesController < ApplicationController
 
         #saves the model into the database
         if @image.save
-            #if the model save, redirect us to the show action
+            #if the model saves it will return "true", redirect us to the show action
             redirect_to @image
         else
             render 'new'

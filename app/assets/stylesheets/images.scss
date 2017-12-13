@@ -1,4 +1,15 @@
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 1rem;
+}
 .image_block{
-    float: left;
-    max-width: 20%;
+    display: inline;  
+}
+
+img{
+    max-width: 20rem;
+    margin:1rem;
 }

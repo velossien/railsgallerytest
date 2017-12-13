@@ -1,17 +1,24 @@
 <h1> IMAGE GALLERY</h1>
 
-
-<% @images.each do |image| %>
-    <%= link_to(image_path(image)) do %>
-        <img class='image_block' src=<%=image.url%> alt=<%=image.alt%> caption=<%=image.caption%>/>
+<div class="flex">
+    <% @images.each do |image| %>
+        <div class='image-block'>
+            <%= link_to(image_path(image)) do %>
+                <img class='picture' src=<%=image.url%> alt=<%=image.alt%> caption=<%=image.caption%>/>
+            <% end %>
+            <ul>
+                <li> <%= link_to 'Edit this image', edit_image_path(image) %></li>
+                <li><%= link_to 'Delete this image', image_path(image),
+                        method: :delete,
+                        data: { confirm:"Are you sure?!?!?!" }%>
+                        <%# Here we pass named route as the 2nd argument and the options as another argument%>
+                        <%# the method: and data: options are used as HTML5 attributes so that when it is clicked, Rails will first show a confirm dialog and then submit the link with method delete - this is done by a JS file called rails-ujs%>
+                </li>
+                
+           
+             </div>
     <% end %>
-    <%= link_to 'Edit this image', edit_image_path(image) %>
-    <%= link_to 'Delete this image', image_path(image),
-                method: :delete,
-                data: { confirm:"Are you sure?!?!?!" }%>
-        <%# Here we pass named route as the 2nd argument and the options as another argument%>
-        <%# the method: and data: options are used as HTML5 attributes so that when it is clicked, Rails will first show a confirm dialog and then submit the link with method delete - this is done by a JS file called rails-ujs%>
-<% end %>
+</div>
 
 <%# new_image_path is the prefix of the route we need - check rails routes in the terminal to see this %>
 <%= link_to 'Add new image', new_image_path %>

@@ -14,9 +14,15 @@
   <%= @image.caption %>
 </p>
 
-<%= link_to 'Edit this image', edit_image_path(@image) %>
-<%= link_to 'Delete this image', image_path(@image),
-                method: :delete,
-                data: { confirm:"Are you sure?!?!?!" }%>
-<%= link_to 'Add another image', new_image_path %>
-<%= link_to 'Image Gallery', images_path %>
+<ul>
+  <li><%= link_to 'Edit this image', edit_image_path(@image) %></li>
+  <li><%= link_to 'Delete this image', image_path(@image),
+                    method: :delete,
+                    data: { confirm:"Are you sure?!?!?!" }%></li>
+  <li><%= link_to 'Add another image', new_image_path %></li>
+  <li><%= link_to 'Image Gallery', images_path %></li>
+</ul>
+    
+    
+    
+    
